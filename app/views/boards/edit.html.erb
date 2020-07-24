@@ -1,37 +1,6 @@
-<h2>Table</h2>
+<h2>編輯看板</h2>
 
-<%if @board.errors.any?%>
-  <ul>
-  <% @board.errors.full_messages.each do |message| %>
-    <li><%= message%> </li>
-  <%end%>
-  </ul>
-<%end%>
-
- <% @board = Board.new%>  
-
-<%= form_for(@board) do |f| %>
-
-<%# 也可在controller 內做出 method 然後把變數帶入 %>
-<div class="fields">
-<%= f.label :title, "看板名稱" %>
-<%= f.text_field :title%>
-</div>
-
-<div class="fields">
-<%= f.label :intro, "看板說明" %>
-<%= f.text_area :intro%>
-</div>
-
-
-
-<%= f.submit "send" %>
-
-
-
-
-<% end %>
-
+<%= render 'form'%>
 
 
 
