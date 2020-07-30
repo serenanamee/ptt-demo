@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   get "/about", to: "pages#about"
 
-  resources :boards
+  resources :boards do
+    resources :posts, shallow: true
+  end
+
 end
 
 

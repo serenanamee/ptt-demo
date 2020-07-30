@@ -8,6 +8,7 @@ end
 
 
 def show
+  @posts = @board.posts.all
 end
 
 def new
@@ -15,7 +16,7 @@ def new
 end
 
 def create
-  @board = Board.new (border_params)
+  @board = Board.new (board_params)
   if @board.save  
      redirect_to root_path, notice: "Successfully created a new board" 
   else
@@ -47,7 +48,7 @@ end
 
 private
 
-def border_params
+def board_params
   params.require(:board).permit(:title, :intro)
 end
 
