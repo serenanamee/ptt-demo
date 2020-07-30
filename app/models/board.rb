@@ -1,8 +1,9 @@
 class Board < ApplicationRecord
 
-  validates :title, presence: true, length: {minimum: 2}
+  acts_as_paranoid  
 
-  def destroy
-    update(delete_at: time.now)
-  end
+  has_many :posts, foreign_key: 'board_id'(#不寫是慣例（coc))
+  validates :title, presence: true
+
+
 end
