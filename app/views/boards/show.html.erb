@@ -1,16 +1,11 @@
-
-
-<h1>看板 <%= @board.title %> </h1>
+<h1>看板 <%= @board.title %></h1>
 <div>
-[版主: <%= display_bm(@board)%>]
+  [版主: <%= display_bm(@board)%>]
 </div>
-<%= link_to "看板", new_board_post_path(@board)%>
+<%= link_to "New", new_board_post_path(@board)%>
 
 <ul>
   <% @posts.each do |post| %>
-  <li><%= link_to post.title, post%>
-  </li>
+  <li><%= link_to post.title, post%></li>
   <% end %>
 </ul>
- 
-

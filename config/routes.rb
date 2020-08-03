@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :posts, shallow: true
   end
 
-  resources :users, only: [:create] do
+  resources :users , only: [:create] do
     collection do
       get :sign_up
       get :edit
