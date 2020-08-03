@@ -1,7 +1,9 @@
 class BoardsController < ApplicationController
 
-  before_action :find_board, only: [:show, :update, :edit , :destroy]
+  include UsersHelper
 
+  before_action :find_board, only: [:show, :update, :edit , :destroy]
+ 
 def index
   @boards = Board.all
 end
@@ -12,7 +14,11 @@ def show
 end
 
 def new
-  @board = Board.new
+  if user_signed_in?
+    @board = Board.new
+  else
+    redirect_to root_path, notice: 'successfully signed_in'
+  end
 end
 
 def create

@@ -4,10 +4,9 @@ before_create :encrypt_password
 
 def self.login(options)
   if options[:account] && options[:password]
-    find_by(account: option[:account],
-            password: Digest::SHA1.hexdigest（"x"+ options[:password] + "Y"）)
-  else
-    return false
+ find_by(account: options[:account],
+              password: Digest::SHA1.hexdigest("x" + options[:password] + "y"))  else
+  return false
   end
   
 end
