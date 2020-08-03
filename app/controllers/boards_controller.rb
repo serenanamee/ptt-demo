@@ -1,8 +1,9 @@
 class BoardsController < ApplicationController
 
-  include UsersHelper
 
   before_action :find_board, only: [:show, :update, :edit , :destroy]
+
+  before_action :require_user_sign_in, except: [:index, :show]
  
 def index
   @boards = Board.all
@@ -10,7 +11,6 @@ end
 
 
 def show
-  @posts = @board.posts.all
 end
 
 def new
