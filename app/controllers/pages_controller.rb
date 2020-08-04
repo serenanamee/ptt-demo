@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   end
 
   def about
-    @boards = Board.all
   end
 
 end

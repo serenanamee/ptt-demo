@@ -2,8 +2,6 @@ class PostsController < ApplicationController
 
   before_action :find_board, only: [:new, :create]
   
-  
-  
   def new
     @post = @board.posts.new
   end
@@ -16,9 +14,6 @@ class PostsController < ApplicationController
       render :new
     end
   end  
-
-
-  
 
 
   private

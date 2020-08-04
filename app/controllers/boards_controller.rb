@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
 
   before_action :find_board, only: [:show, :update, :edit , :destroy]
 
-  before_action :require_user_sign_in, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
  
 def index
   @boards = Board.all
@@ -14,17 +14,13 @@ def show
 end
 
 def new
-  if user_signed_in?
     @board = Board.new
-  else
-    redirect_to root_path, notice: 'successfully signed_in'
-  end
 end
 
 def create
   @board = Board.new (board_params)
   if @board.save  
-     redirect_to root_path, notice: "Successfully created a new board" 
+     redirect_to boards_path, notice: "Successfully created a new board" 
   else
     render 'new'
   end
@@ -35,11 +31,8 @@ def edit
 end
 
 def update
-  @board = Board.find(params[:id])
-
   if @board.update(board_params)
      redirect_to boards_path, notice: "updated"
-  
   else
     render :edit
   end
@@ -61,6 +54,5 @@ end
 def find_board
   @board = Board.find(params[:id])  
 end
-
 
 end
