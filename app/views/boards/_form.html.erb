@@ -1,10 +1,10 @@
-<%if @board.errors.any?%>
+<%if board.errors.any?%>
 <ul>
-  <% @board.errors.full_messages.each do |message| %>
+  <% board.errors.full_messages.each do |message| %>
   <li><%= message%></li>
   <%end%>
 </ul>
-<%end%> <%= form_for(@board) do |f| %>
+<%end%> <%= form_for(board) do |f| %>
 
 <div class="fields">
   <%= f.label :title, "看板名稱" %> <%= f.text_field :title%>

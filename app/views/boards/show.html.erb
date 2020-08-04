@@ -3,9 +3,3 @@
   [版主: <%= display_bm(@board)%>]
 </div>
 <%= link_to "New", new_board_post_path(@board)%>
-
-<ul>
-  <% @posts.each do |post| %>
-  <li><%= link_to post.title, post%></li>
-  <% end %>
-</ul>

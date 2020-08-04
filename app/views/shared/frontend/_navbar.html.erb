@@ -4,7 +4,7 @@
   <ul>
     <%if user_signed_in? %>
       <li> <%= current_user.account%> </li>
-      <li> <%= link_to "sign_out", sign_out_users_path, method: :delete,notice: "Are you sre?"%> </li>
+      <li> <%= link_to "sign_out", sign_out_users_path, method: 'delete',notice: "Are you sre?"%> </li>
     <%else%>
       <li> <%= link_to "sign_in", sign_in_users_path%> </li>    
       <li> <%= link_to "sign_up", sign_up_users_path%> </li>

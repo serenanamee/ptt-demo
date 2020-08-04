@@ -1,21 +1,15 @@
-
-
 <div class="wrap">
+  <h1>看版</h1>
 
+  <%=link_to "新增看板", new_board_path %>
 
-<h1>看版</h1>
-
-
-<%=link_to "新增看板", new_board_path %>
-
-<ul>
-  <% @boards.each do |board| %>
-  <li><%= link_to board.title, board_path(board)%>
-      <%= link_to "edit" ,edit_board_path(board)%>
-      <%= link_to "delete" ,board_path(board), method: :delete, data: {confirm: "Are you sure"}%>
-  </li>
-  <% end %>
-</ul>
-
+  <ul>
+    <% @boards.each do |board| %>
+    <li>
+      <%= link_to board.title, board_path(board)%> 
+      <%= link_to "edit",edit_board_path(board)%> 
+      <%= link_to "delete" ,board_path(board),method: "delete", data: {confirm: "Are you sure"}%>
+    </li>
+    <% end %>
+  </ul>
 </div>
- 
