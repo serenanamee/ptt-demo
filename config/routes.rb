@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root "boards#index"
+  root "pages#index"
 
   get "/about", to: "pages#about"
 
+  resources :favorites, only: [:index]
+
   resources :boards do
+    member do
+      post :favorite
+    end
     resources :posts, shallow: true
   end
 

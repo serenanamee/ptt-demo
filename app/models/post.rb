@@ -7,6 +7,14 @@ class Post < ApplicationRecord
 
   before_save :create_serial
 
+  def display_username
+    if user.nil?
+      "-"
+    else
+      user.account
+    end
+  end
+  
 
   private
 
