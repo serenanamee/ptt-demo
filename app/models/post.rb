@@ -2,6 +2,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :serial, uniqueness: true
+
+
   belongs_to :board
   belongs_to :user
 
