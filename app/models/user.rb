@@ -2,6 +2,7 @@ class User < ApplicationRecord
 validates :account, :email, presence: true, uniqueness: true
 before_create :encrypt_password
 
+has_many :posts 
 has_many :board_masters
 has_many :boards, through: :board_masters
 
