@@ -6,7 +6,8 @@ class Post < ApplicationRecord
 
   belongs_to :board
   belongs_to :user
-
+  has_many :comments
+  
   before_save :create_serial
 
   def display_username
